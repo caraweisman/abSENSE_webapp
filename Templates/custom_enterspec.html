@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<style>
+
+
+* {
+    font-family: "Gill Sans";
+  }
+
+ul {list-style-type: none;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: center;
+    line-height:40px;
+    }
+
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: top;
+}
+th, td {
+  padding: 0px;
+  }
+
+
+li:nth-child(even) {
+    background: #f0eee9;
+    }
+ul li{
+  margin: 0px;
+  padding: 0px;
+  vertical-align: top;
+}
+
+
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
+
+
+</style>
+
+<table border="0" style="text-align:center;margin-left:auto;margin-right:auto;margin-top:0;width:100%;border-collapse: collapse;" cellpadding="0" cellspacing="0" height="10px">
+<tr style="background-color:#e3e3dc;">
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="{{ url_for('home') }}"> abSENSE home</a> </p>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="{{ url_for('about') }}"> About</a> </p>
+</td>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+Paper (please cite!)
+</p>
+</td>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="https://github.com/caraweisman/abSENSE">
+Downloadable code (via Github)
+</a></p>
+</td>
+</tr>
+</table>
+
+
+<center>
+   <body font-family: Gill Sans;>
+
+      <p style = "text-align: center;font-size:40px;"> <b> Run abSENSE on your own data </b> </p>
+			
+           <div style = "font-size:20px;text-align:center;">
+            Use this page to run an analysis in a taxon or gene not included in our precomputed database.
+            <br> <br>
+            You'll need the N evolutionary distances between your focal species and each of your N other species.
+        <br> <br>
+        You'll also need the bitscore of at least 2 orthologs of your gene of interest (in the focal species) in 2 of the N other species. (You'll also need the bitscore of the gene against itself in the focal species.)
+        <br><br>
+</div>
+		
+      <fieldset style="width:80%;margin:auto;">
+
+      <form action = "http://localhost:5000/custom_enterspec" method = post>
+            {{ form.hidden_tag() }}
+            <div style = "font-size:20px;align:center;">
+
+            <table padding="10" style="width:90%;">
+                <tr>
+                <td>
+                {{ form.genename.label }} {{ form.genename }}
+                <br> <br>
+                </td>
+                <td>
+                </td>
+                </tr>
+                <tr style="background: #f0eee9;cellheight:40px;">
+                   <td style="height:40px;">
+                   {{ form.focalspec.label }} <br>
+                   {{ form.focalspec }}
+                   </td>
+                   <td  style="height:40px;">
+                   {{ form.bsfocal.label }} <br>
+                   {{ form.bsfocal}}
+                   </td>
+                   <td style="height:40px;"> (Distance of focal species from itself is 0!)
+                   </td>
+                </tr>
+                <tr>
+                   <td>
+                   {{ form.otherspecs }}
+                   </td>
+                   <td>
+                   {{ form.bsothers }}
+                   </td>
+                   <td>
+                   {{ form.otherspecdists }}
+                   </td>
+                </tr>
+                <tr>
+                <br>
+                <br>
+                </table>
+    <table style="width:30%;float:center;">
+    <tr style="background: #ffffd4;">
+    <td>
+        <h3 style = "text-align: center;"> Advanced options: </h3>
+
+        {{ form.ecutoff.label }} {{form.ecutoff}}
+        <br> 
+        {{ form.genesize.label }} {{ form.genesize }}
+        <br> 
+        {{ form.dbsize.label }} {{form.dbsize }}
+        <br><br>
+    </td>
+    </tr>
+    <table>
+                   {{ form.submit }}
+
+            
+      </form>
+      </fieldset>
+      </div>
+   </body>
+</center>
+</html>

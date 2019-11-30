@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<style> 
+* {
+    font-family: "Gill Sans";
+  }
+
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
+
+
+</style>
+
+<table border="0" style="text-align:center;margin-left:auto;margin-right:auto;margin-top:0;width:100%;border-collapse: collapse;" cellpadding="0" cellspacing="0" height="10px">
+<tr style="background-color:#e3e3dc;">
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="{{ url_for('home') }}"> abSENSE home</a> </p>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="{{ url_for('about') }}"> About</a> </p>
+</td>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+Paper (please cite!)
+</p>
+</td>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="https://github.com/caraweisman/abSENSE">
+Downloadable code (via Github)
+</a></p>
+</td>
+</tr>
+</table>
+
+
+   <body>
+      <h2 style = "text-align: center;"> Search for a gene </h2>
+	<br> 
+			
+           <div style = "font-size:20px;text-align:center;">
+The gene that you have selected has fewer detected orthologs in our database than are required to perform the abSENSE analysis. Sorry!
+<br> <br>
+This can be due either to a lack of detected homologs or an insufficient number of those homologs having obvious orthology (as opposed to paralogy).
+<br> <br>
+If you can find a sufficient number (at least 3) orthologs and compute the bitscores yourself, you can perform this analysis using the custom analysis part of the website.
+            
+            </div>
+   </body>
+</html>

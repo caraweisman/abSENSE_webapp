@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<style>
+* {
+    font-family: "Gill Sans";
+  }
+
+ul {list-style-type: none;
+    padding-left: 0;
+    vertical-align: center;
+    }
+
+</style>
+
+<table border="0" style="text-align:center;margin-left:auto;margin-right:auto;margin-top:0;width:100%;border-collapse: collapse;" cellpadding="0" cellspacing="0" height="10px">
+<tr style="background-color:#e3e3dc;">
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="{{ url_for('home') }}"> abSENSE home</a> </p>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="{{ url_for('about') }}"> About</a> </p>
+</td>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+Paper (please cite!)
+</p>
+</td>
+<td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+Downloadable code (via Github)
+</p>
+</td>
+</tr>
+</table>
+
+   <body>
+<p style = "text-align: center;font-size:30px;">  Search for a <i> D. melanogaster </i> gene </p>
+	<br> 
+			
+           <div style = "font-size:20px;text-align:center;">
+	   Search a database of <i> D. melanogaster </i> genes for which orthology and bitscores of orthologs in 21 other insects have been pre-computed. <br>
+	   abSENSE analysis for the selected gene will then be shown.
+	   </div>
+	<br> <br>
+	
+      <form action = "http://localhost:5000/browse_insects_searchresults" method = post>
+            {{ form.hidden_tag() }}
+            
+            <div style = "font-size:20px;text-align:center;">
+               {{ form.insects_gene_choices.label }}<br><br>
+               {{ form.insects_gene_choices }}
+               <br><br>
+               {{ form.submit }}    
+            </div>
+            
+      </form>
+   </body>
+</html>

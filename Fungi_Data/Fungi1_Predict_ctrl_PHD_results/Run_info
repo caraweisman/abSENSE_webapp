@@ -1,0 +1,11 @@
+Input bitscore file = Fungi_Data/Fungi_Bitscores
+Input distance file = Fungi_Data/Fungi_Distances
+Gene length file = Fungi_Data/S_cer_Protein_Lengths
+Database length file = Fungi_Data/Fungi_Database_Lengths
+Species used in fit:
+S_cer
+S_par
+S_mik
+S_bay
+S_kud
+E-value threshold = 0.001

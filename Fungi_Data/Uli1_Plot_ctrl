@@ -1,0 +1,9 @@
+distance_filename = Fungi_Data/Fungi_Distances
+bitscore_filename = Fungi_Data/Fungi_Bitscores
+#genelength_filename = Fungi_Data/S_cer_Protein_Lengths
+genelength = 169
+#speciesdblength_filename = Fungi_Data/Fungi_Database_Lengths
+speciesdblength = 2500000
+eval_cutoff = 0.001
+species_used_in_prediction = S_cer,S_par,S_mik,S_bay,S_kud
+gene_to_test = NP_116682.3 
