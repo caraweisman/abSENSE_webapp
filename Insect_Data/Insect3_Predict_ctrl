@@ -1,9 +1,0 @@
-distance_filename = Insect_Data/Insect_Distances
-bitscore_filename = Insect_Data/Insect_Bitscores
-genelength_filename = Insect_Data/D_mel_Protein_Lengths
-#genelength = 
-speciesdblength_filename = Insect_Data/Insect_Database_Lengths
-# speciesdblength = 
-eval_cutoff = 0.001
-species_used_in_prediction = dmel,dsim,dsec,dyak,dere,dpse,dper,dwil,dvir,dmoj,dgri,musca_domestica,ccap,aaeg,agam,tcas,bter,amel,bmori,acyr
-
