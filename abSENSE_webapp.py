@@ -17,7 +17,7 @@ from flask_wtf import Form
 from wtforms import TextField, IntegerField, StringField, BooleanField, validators, SubmitField, FieldList, DecimalField, FloatField, RadioField, SelectField
 
 app = Flask(__name__)
-app.secret_key = '\x0f\xba\x04\xfa\xd0\x95\x9co\xf0\t\xbd-\x90\xf7t\xa9\x19\r\xb6\x0f(s\xf0,
+app.secret_key = '\x0f\xba\x04\xfa\xd0\x95\x9co\xf0\t\xbd-\x90\xf7t\xa9\x19\r\xb6\x0f(s\xf0,'
 
 hcnumspec = 5
 
