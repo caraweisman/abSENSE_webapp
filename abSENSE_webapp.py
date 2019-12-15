@@ -37,7 +37,6 @@ class insects_gene_ask(Form):
     
 @app.route('/')
 def home():
-    
     return render_template('home.html')
 
 @app.route('/about')
@@ -54,7 +53,7 @@ def browse_fungi_search():
         elif request.method == 'POST':
             session['fungiquery'] = form.gene_desc.data
             #return form.gene_desc.data
-            return redirect('/browse_fungi_searchresults')
+            return redirect(url_for('browse_fungi_select'))
         
 @app.route('/browse_fungi_searchresults', methods = ['GET', 'POST'])
 def browse_fungi_select():
@@ -75,7 +74,7 @@ def browse_fungi_select():
     elif request.method == 'POST':
         session['geneid'] = re.split('\s', form.fungi_gene_choices.data)[0][1:]
         session['fullgenedesc'] = form.fungi_gene_choices.data[1:]
-        return redirect('/browse_fungi_generesults')  
+        return redirect(url_for('browse_fungi_generesults'))
     
 @app.route('/browse_fungi_generesults', methods = ['GET', 'POST'])
 def browse_fungi_generesults():
@@ -158,7 +157,7 @@ def browse_insects_search():
         elif request.method == 'POST':
             session['insectsquery'] = form.gene_desc.data
             #return form.gene_desc.data
-            return redirect('/browse_insects_searchresults')
+            return redirect(url_for('browse_insects_select'))
         
 @app.route('/browse_insects_searchresults', methods = ['GET', 'POST'])
 def browse_insects_select():
@@ -180,7 +179,7 @@ def browse_insects_select():
     elif request.method == 'POST':
         session['geneid'] = re.split('\s', form.insects_gene_choices.data)[0][1:]
         session['fullgenedesc'] = form.insects_gene_choices.data[1:]
-        return redirect('/browse_insects_generesults')  
+        return redirect(url_for('browse_insects_generesults'))
     
     
 @app.route('/browse_insects_generesults', methods = ['GET', 'POST'])
@@ -269,7 +268,7 @@ def form_test():
         else:
             session['numspecs'] = form.numspecs.data
             numspecs = form.numspecs.data
-            return redirect('/custom_enterspec') 
+            return redirect(url_for('custom_enterspec2'))
     elif request.method == 'GET':
          return render_template('custom_numspec.html', form = form)
 

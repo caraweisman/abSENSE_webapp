@@ -94,7 +94,7 @@ Downloadable code (via Github)
 		
       <fieldset style="width:80%;margin:auto;">
 
-      <form action = "http://localhost:5000/custom_enterspec" method = post>
+      <form action = "{{ url_for('custom_enterspec2') }}" method = post>
             {{ form.hidden_tag() }}
             <div style = "font-size:20px;align:center;">
 

@@ -60,7 +60,7 @@ Downloadable code (via Github)
 	   abSENSE analysis for the selected gene will then be shown.
 	   </div>
 	<br> <br>
-      <form action = "http://localhost:5000/browse_fungi" method = post>
+      <form action = "/abSENSE/browse_fungi" method = post>
             {{ form.hidden_tag() }}
             
             <div style = "font-size:20px;text-align:center;">

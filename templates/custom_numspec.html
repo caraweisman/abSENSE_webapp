@@ -70,7 +70,7 @@ Downloadable code (via Github)
          <div>{{ message }}</div>
       {% endfor %}
       
-      <form action = "http://localhost:5000/custom_numspec" method = post>
+      <form action = "{{ url_for('form_test') }}" method = post>
             {{ form.hidden_tag() }}
             
             <div style = "font-size:20px; text-align:center;">
