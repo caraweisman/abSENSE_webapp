@@ -9,7 +9,24 @@ ul {list-style-type: none;
     padding-left: 0;
     vertical-align: center;
     }
+a:link {
+  color: black;
+}
 
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
 </style>
 
 <table border="0" style="text-align:center;margin-left:auto;margin-right:auto;margin-top:0;width:100%;border-collapse: collapse;" cellpadding="0" cellspacing="0" height="10px">
@@ -24,28 +41,29 @@ ul {list-style-type: none;
 </p>
 </td>
 <td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
+<a href="https://github.com/caraweisman/abSENSE">
 Downloadable code (via Github)
-</p>
+</a></p>
 </td>
 </tr>
 </table>
 
    <body>
-<p style = "text-align: center;font-size:30px;">  Search for a <i> D. melanogaster </i> gene </p>
+<p style = "text-align: center;font-size:30px;">  Search for a <i> S. cerevisiae </i> gene </p>
 	<br> 
 			
            <div style = "font-size:20px;text-align:center;">
-	   Search a database of <i> D. melanogaster </i> genes for which orthology and bitscores of orthologs in 21 other insects have been pre-computed. <br>
+	   Search a database of <i> S. cerevisiae </i> genes for which orthology and bitscores of orthologs in 11 other fungi have been pre-computed. <br>
 	   abSENSE analysis for the selected gene will then be shown.
 	   </div>
 	<br> <br>
 	
-      <form action = "http://localhost:5000/browse_insects_searchresults" method = post>
+      <form action = "{{ url_for('browse_fungi_select') }}" method = post>
             {{ form.hidden_tag() }}
             
             <div style = "font-size:20px;text-align:center;">
-               {{ form.insects_gene_choices.label }}<br><br>
-               {{ form.insects_gene_choices }}
+               {{ form.fungi_gene_choices.label }}<br><br>
+               {{ form.fungi_gene_choices }}
                <br><br>
                {{ form.submit }}    
             </div>

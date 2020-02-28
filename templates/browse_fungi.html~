@@ -5,7 +5,6 @@
     font-family: "Gill Sans";
   }
 
-
 a:link {
   color: black;
 }
@@ -26,6 +25,7 @@ a:active {
 }
 
 </style>
+   <body>
 
 
 <table border="0" style="text-align:center;margin-left:auto;margin-right:auto;margin-top:0;width:100%;border-collapse: collapse;" cellpadding="0" cellspacing="0" height="10px">
@@ -49,37 +49,37 @@ Downloadable code (via Github)
 
 
 
+<p style = "text-align: center;font-size:40px;"> <b> Browse fungal genes </b> </p>
 
-   <body>
-
-   <p style = "text-align: center;font-size:40px;"> <b> Run abSENSE on your own data </b> </p>
+<fieldset style="width:80%;margin:auto;">
+<p style = "text-align: center;font-size:30px;">  Search for a <i> S. cerevisiae </i> gene </p>
+	<br> 
 			
            <div style = "font-size:20px;text-align:center;">
-            Use this page to run an analysis in a taxon or gene not included in our precomputed database.
-            <br> <br>
-            You'll need the N evolutionary distances between your focal species and each of your N other species.
-        <br> <br>
-        You'll also need the bitscore of at least 2 orthologs of your gene of interest (in the focal species) in 2 of the N other species. (You'll also need the bitscore of the gene against itself in the focal species.)
-        <br><br><br>
-</div>
-<fieldset style="width:80%;margin:auto;">
-
-
-		
-      {% for message in form.numspecs.errors %}
-         <div>{{ message }}</div>
-      {% endfor %}
-      
-      <form action = "http://localhost:5000/custom_numspec" method = post>
+	   Search a database of <i> S. cerevisiae </i> genes for which orthology and bitscores of orthologs in 11 other fungi have been pre-computed. <br>
+	   abSENSE analysis for the selected gene will then be shown.
+	   </div>
+	<br> <br>
+      <form action = "/abSENSE/browse_fungi" method = post>
             {{ form.hidden_tag() }}
             
-            <div style = "font-size:20px; text-align:center;">
-               {{ form.numspecs.label }}<br>
-               {{ form.numspecs }}
-               <br>
+            <div style = "font-size:20px;text-align:center;">
+               {{ form.gene_desc.label }}<br> <br> 
+               {{ form.gene_desc }}
+               <br> <br> 
                {{ form.submit }}    
             </div>
+            
+      </form>
+
+</fieldset> 
+<p style = "text-align: center;font-size:40px;">  --- or --- </p>
+
+<fieldset style="width:80%;margin:auto;">
+
+<p style = "text-align: center;font-size:30px;"> <a href="{{ url_for('fungi_show_random') }}">  Show abSENSE analysis for a random <i> S. cerevisiae </i> gene </a> </p>
+
 </fieldset>
-</form>
+      
    </body>
 </html>

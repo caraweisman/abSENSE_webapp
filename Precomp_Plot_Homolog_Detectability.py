@@ -251,14 +251,14 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
                 lownns = []
                 undets = []
                 for j in range(0, len(absentdists)):
-                        print bitthresh
+                        print (bitthresh)
                         for k in range(1, len(speciesdblengths)):
                                 # now use species-specific db length
                                 if absentspecs[j] in speciesdblengths[k][0]:
                                         dblen = float(speciesdblengths[k][1])
                                         bitthresh = -1*math.log(ethresh/(dblen), 2)
                         lowprediction, highprediction, pval, emppval = PI_find(testavals, testbvals, absentdists[j], bitthresh, 20)
-                        print bitthresh, pval, emppval
+                        print (bitthresh, pval, emppval)
                         #print absentspecs[j], ':'
                         #print 'Maximum likelihood bitscore prediction: ', str(round(func(absentdists[j], a,b),2))
                         mlpreds.append(str(round(func(absentdists[j], a,b),2)))

@@ -36,7 +36,7 @@ a:active {
 <a href="{{ url_for('about') }}"> About</a> </p>
 </td>
 <td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
-<a href="https://www.biorxiv.org/content/10.1101/2020.02.27.968420v1"> Paper (please cite!) </a>
+Paper (please cite!)
 </p>
 </td>
 <td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
@@ -60,7 +60,7 @@ Downloadable code (via Github)
 	   abSENSE analysis for the selected gene will then be shown.
 	   </div>
 	<br> <br>
-      <form action = "http://localhost:5000/browse_fungi" method = post>
+      <form action = "{{ url_for('browse_fungi_search') }}" method = post>
             {{ form.hidden_tag() }}
             
             <div style = "font-size:20px;text-align:center;">
@@ -76,7 +76,6 @@ Downloadable code (via Github)
 <p style = "text-align: center;font-size:40px;">  --- or --- </p>
 
 <fieldset style="width:80%;margin:auto;">
-
 <p style = "text-align: center;font-size:30px;"> <a href="{{ url_for('fungi_show_random') }}">  Show abSENSE analysis for a random <i> S. cerevisiae </i> gene </a> </p>
 
 </fieldset>
