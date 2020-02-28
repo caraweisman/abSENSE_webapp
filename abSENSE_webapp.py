@@ -22,7 +22,7 @@ app.secret_key = '\x0f\xba\x04\xfa\xd0\x95\x9co\xf0\t\xbd-\x90\xf7t\xa9\x19\r\xb
 hcnumspec = 5
 
 class numspecs_ask(Form):
-    numspecs = IntegerField("How many species do you have (including your focal species)?", [validators.NumberRange(min=4, message = 'An integer number of at least 3 species is required!'), validators.DataRequired(message='Required!')])
+    numspecs = IntegerField("How many species do you have (including your focal species)?", [validators.NumberRange(min=3, message = 'An integer number of at least 3 species is required!'), validators.DataRequired(message='Required!')])
     submit = SubmitField("Continue")
     
 class fungi_gene_ask(Form):
