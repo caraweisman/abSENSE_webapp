@@ -34,8 +34,7 @@ a:active {
 <a href="{{ url_for('about') }}"> About</a> </p>
 </td>
 <td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
-<a href="https://www.biorxiv.org/content/10.1101/2020.02.27.968420v1"> Paper (please cite!) </a>
-</p>
+<a href="https://doi.org/10.1371/journal.pbio.3000862"> Paper (please cite!) </a></p>
 </td>
 <td style = "vertical-align:top;width:25%;padding:0;"><p style = "font-size:20px;vertcal-align:top;"> 
 <a href="https://github.com/caraweisman/abSENSE">
@@ -61,8 +60,13 @@ A second explanation, often ignored, is that the homolog is present in the genom
 <br><br>
 By calculating the probability that your homology search would fail to detect a homolog even if one were present and even if it were evolving normally (e.g. no rate accelerations on a specific branch, potentially suggestive of biologically interesting changes), abSENSE informs the interpretation of a negative homology search result. If abSENSE finds that there is a high probability of a homolog being undetected even if present, you may not be as inclined to invoke a biological explanation for the result: the null model of a failure of the homology search is sufficient to explain what you observe.
 <br><br>
-The method is explained in further detail in the paper (citation). There, it is applied to the specific case of lineage-specific genes, for which homologs appear absent in all species outside of a narrow lineage. The method itself is applicable to any case in which a homolog appears absent (e.g. a single species missing a homolog that one might interpret as a gene loss), and likewise, this code is applicable to all such cases.
+The method is explained in complete detail in the paper in which we introduce it:
+<br><br>
 
+<b> <a href="https://doi.org/10.1371/journal.pbio.3000862">  Weisman CM, Murray AW, Eddy SR (2020) Many, but not all, lineage-specific genes can be explained by homology detection failure. PLoS Biol 18(11): e3000862. https://doi.org/10.1371/journal.pbio.3000862 </a> </b>
+<br><br>
+    There, it is applied to the specific case of lineage-specific genes, for which homologs appear absent in all species outside of a narrow lineage. The method itself is applicable to any case in which a homolog appears absent (e.g. a single species missing a homolog that one might interpret as a gene loss), and likewise, this code is applicable to all such cases.
+<br>
 <p style = "text-align: left;font-size:30px;"> When should I use this site vs. the downloadable code?  </p>
 
 <b> Small numbers of analyses: </b> This website can analyze one gene at a time, outputs numerical results to the screen (not a file), and produces a visualization of the resulting analysis. If you want to analyze one or a few genes, for which you have the bandwidth and desire to look at their visualizations, this website will probably serve you well. By contrast, if you're looking to analyze hundreds or thousands of genes, you should use the downloadable command line code, which is faster, can be run on an arbitrary number of genes at once, and outputs results to a tab-delimited file.
@@ -72,11 +76,24 @@ The method is explained in further detail in the paper (citation). There, it is 
 <p style = "text-align: left;font-size:30px;"> FAQ </p>
 
 <b> Why do some species appear in gray text in the abSENSE output? </b> As indicated by the label 'Orthology ambiguous,' these are species in which a gene was detected that is homologous to the query gene at the chosen significance threshold, but which is at risk of not being a strict orthlog (e.g. could be a paralog), because it failed the Reciprocal Best Hit criterion. These species aren't missing homologs, and so we don't consider them as such in our analysis, but since their homologs may not be orthologs, including them in the prediction procedure for other orthologs may throw off the results (paralogs can have different evolutionary rates/patterns), and so we don't use them to predict bitscores.
+<br> <br> 
+<b> How do I calculate the evolutionary distances between my species? </b> There's no single way that you have to do this; the goal is just to use any method that gives you relatively accurate relative evolutionary distances. In the paper where we develop abSENSE, we show that you can do this reliably by aligning ~15 highly-conserved genes present in single copy in each of your species and computing the pairwise distances from a simple method like Protdist in the Phylip package (https://evolution.genetics.washington.edu/phylip/doc/protdist.html). But you could try to get distances in any number of other ways: taking them from a published phylogeny, estimating them with other methods (fewer genes or different kinds of genes), or even, potentially, from fossil record estimates. If you're going to use one of these different methods, it'll likely be important to check that your distances are reliable (result quality depends on this). You can do this by using a positive control: check the results that abSENSE and those distances give for genes that ARE detected in your species of interest. If you ask abSENSE to analyze a gene that in fact is detected in a species, holding out the bitscore data from that species as if it weren't, accurate evolutionary distances should give a result that correctly recapitulates the fact that the gene is detected. This is what we do in the paper (Figures 4,5). 
+<br> <br> 
 <b> Who should I contact if I have questions? </b> You should email the author, Cara Weisman, at weisman@g.harvard.edu.
 
 </div>
 
 
-
+<P align="right">
+<b>
+Author: Cara Weisman 
+</b>
+<br>
+Email: weisman@g.harvard.edu
+<br> Twitter: <a href = https://twitter.com/WeismanCara> @WeismanCara </a>
+<br>
+<a href = https://scholar.google.com/citations?user=crObMO4AAAAJ&hl=en> Google scholar </a>
+</b>
+</P>
 
 </html>
