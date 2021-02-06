@@ -98,6 +98,7 @@ def PI_find(testavals, testbvals, currx, bitthresh, samplesize):
 ###### End define functions ######
 
 def fungi_make_pred_plot(gene, pred_specs, clade):
+        print pred_specs
 
         if clade == 'fungi':
                 distancefile = np.genfromtxt('Fungi_Data/Fungi_Distances', dtype=str, delimiter='\t')
@@ -132,10 +133,19 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
                 for j in range(0, len(speciesdblengths)):
                         if speciesorderbydist[i] in speciesdblengths[j][0]:
                                 speciestotallengths.append(float(speciesdblengths[j][1]))
+                                
+        ordervec = [] # first index is location of first species in dist-sorted speciesorder in the score file; and so on
+        for i in range(0, len(speciesorderbydist)):
+            found = False
+            for j in range(0, len(bitscores[0])):
+                if speciesorderbydist[i] in bitscores[0][j]:
+                    ordervec.append(j)
+                    found = True
+        print ordervec
 
-        pred_spec_locs = []
+        pred_spec_locs = [] # in file
         for i in range(0, len(speciesorderbydist)): 
-                if speciesorder[i] in pred_specs:
+                if speciesorderbydist[i] in pred_specs:
                         pred_spec_locs.append(i)
 
         # Ignore warning that sometimes happen as a result of stochastic sampling but that doesn't affect overall computation
@@ -155,6 +165,9 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
         speciesorderbydist = [x for _,x in sorted(zip(rawdistances,speciesorder))]
         rawdistancesbydist = sorted(rawdistances)
 
+        print(speciesorderbydist)
+        print(rawdistancesbydist)
+
         predbitscores = []
         preddistances = []
         predspecs = []
@@ -173,7 +186,11 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
         absentdists = []
         for j in range(0, len(bitscores)): 
                 if gene in bitscores[j][0]:
-                        orderedscores = [x for _,x in sorted(zip(rawdistances,bitscores[j][1:]))]
+                        orderedscores = [bitscores[j][z] for z in ordervec]
+                        #orderedscores = [x for _,x in sorted(zip(rawdistances,bitscores[j][1:]))]
+                        print(orderedscores)
+                        #print(zip(rawdistances,bitscores[j][1:]))
+                        #print(sorted(zip(rawdistances,bitscores[j][1:])))
                         #print orderedscores
                         for k in range(0, len(orderedscores)):
                                 infit = False
@@ -251,7 +268,6 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
                 lownns = []
                 undets = []
                 for j in range(0, len(absentdists)):
-                        print (bitthresh)
                         for k in range(1, len(speciesdblengths)):
                                 # now use species-specific db length
                                 if absentspecs[j] in speciesdblengths[k][0]:
@@ -339,8 +355,7 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
         return plt, aparam, bparam, rsq, notinfitspecs, mlpreds, highnns, lownns, undets, ambigspecs, absentspecs, speciesorderbydist, orderedscores
 
 
-
-
+#fungi_make_pred_plot('NP_001018030.1', ['S_cerevisiae', 'S_paradoxus', 'S_mikatae'], 'fungi')
 #make_pred_plot()
 #plt.show()
 
