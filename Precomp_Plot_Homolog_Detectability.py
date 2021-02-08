@@ -98,8 +98,6 @@ def PI_find(testavals, testbvals, currx, bitthresh, samplesize):
 ###### End define functions ######
 
 def fungi_make_pred_plot(gene, pred_specs, clade):
-        print pred_specs
-
         if clade == 'fungi':
                 distancefile = np.genfromtxt('Fungi_Data/Fungi_Distances', dtype=str, delimiter='\t')
                 bitscores = np.genfromtxt('Fungi_Data/Fungi_Bitscores', dtype=str, delimiter='\t')
@@ -141,7 +139,6 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
                 if speciesorderbydist[i] in bitscores[0][j]:
                     ordervec.append(j)
                     found = True
-        print ordervec
 
         pred_spec_locs = [] # in file
         for i in range(0, len(speciesorderbydist)): 
@@ -164,9 +161,6 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
 
         speciesorderbydist = [x for _,x in sorted(zip(rawdistances,speciesorder))]
         rawdistancesbydist = sorted(rawdistances)
-
-        print(speciesorderbydist)
-        print(rawdistancesbydist)
 
         predbitscores = []
         preddistances = []
@@ -274,7 +268,6 @@ def fungi_make_pred_plot(gene, pred_specs, clade):
                                         dblen = float(speciesdblengths[k][1])
                                         bitthresh = -1*math.log(ethresh/(dblen), 2)
                         lowprediction, highprediction, pval, emppval = PI_find(testavals, testbvals, absentdists[j], bitthresh, 20)
-                        print (bitthresh, pval, emppval)
                         #print absentspecs[j], ':'
                         #print 'Maximum likelihood bitscore prediction: ', str(round(func(absentdists[j], a,b),2))
                         mlpreds.append(str(round(func(absentdists[j], a,b),2)))
