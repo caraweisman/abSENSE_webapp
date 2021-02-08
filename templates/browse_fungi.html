@@ -57,6 +57,8 @@ Downloadable code (via Github)
            <div style = "font-size:20px;text-align:center;">
 	   Search a database of <i> S. cerevisiae </i> genes for which orthology and bitscores of orthologs in 11 other fungi have been pre-computed. <br>
 	   abSENSE analysis for the selected gene will then be shown.
+    <br><br>
+	   (Search term must be contained in the NCBI accession. If your search fails, try to  find the accession number (eg NP_XXXX) or an included term in the gene entry at <a href = https://www.ncbi.nlm.nih.gov/refseq/rsg/> NCBI </a>.)
 	   </div>
 	<br> <br>
       <form action = "{{ url_for('browse_fungi_search') }}" method = post>
